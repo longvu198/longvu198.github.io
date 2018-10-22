@@ -34,15 +34,12 @@
 
 				scene = new THREE.Scene();
 				
-				for ( var i = 0; i < 300; i ++ ) {
-				map = THREE.ImageUtils.loadTexture('../texturez/proxy.php?url=https://i1.wp.com/myblog.ottawaarts.com/wp-content/uploads/2010/05/DRA-bluematerialtexture.jpg');
-				geometry = new THREE.TorusGeometry(100, 40, 40, 7, 12.57);
+				
+				geometry = new THREE.CylinderGeometry(108.84, 121.78, 346.96, 13, 50, false);
 				material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
 				mesh = new THREE.Mesh(geometry, material);
-				map.wrapS = map.wrapT = THREE.RepeatWrapping;
-				map.repeat.set( 1, 1 );
 				scene.add(mesh);
-				}
+
 
 			}
 
@@ -50,10 +47,10 @@
 
 				requestAnimationFrame( draw );
 				
-				mesh.rotation.x = Date.now() * 0.0020;	
-				mesh.rotation.y = Date.now() * 0.0020;	
+				mesh.rotation.x = Date.now() * 0.0005;	
+				mesh.rotation.y = Date.now() * 0.0002;	
 				mesh.rotation.z = Date.now() * 0.001;
-				mesh.position.y = Math.sin( Date.now() * 0.002 ) * 300;
+
 				renderer.render( scene, camera );
 
 			}
